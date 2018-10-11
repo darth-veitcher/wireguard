@@ -1,5 +1,7 @@
 # wireguard-docker
 
+Note: Edits to allow it to run on RancherOS.
+
 A Docker image containing Wireguard that enables containerized
 VPNs. Containers that use this image can provide VPN services to other
 Docker containers by sharing the same Docker network.
@@ -11,13 +13,17 @@ on kernels where Ubuntu 16.04, the OS for the base image, can pull
 down kernel headers. This has been verified to work on kernels 4.13
 and newer.
 
+## RancherOS Notes
+
+Instead of installing Ubuntu-specific kernel headers, install kernel header through [`ros service`](https://rancher.com/docs/os/v1.2/en/configuration/kernel-modules-kernel-headers/). Once done, running the container with `/usr/src` and `lib/modules` mounted will compile and install WireGuard without any issues.
+
 ## Image
 
 An up-to date Docker image can be found on Dockerhub at
-`activeeos/wireguard-docker`. To pull:
+`deltasquare4/wireguard-docker`. To pull:
 
 ```bash
-$ docker pull activeeos/wireguard-docker
+$ docker pull deltasquare4/wireguard-docker
 ```
 
 ## Usage
@@ -54,9 +60,16 @@ capabilities are necessary:
 ### Example `docker run` command
 
 ```bash
-docker run -it --rm --cap-add net_admin --cap-add sys_module \
-       -v /etc/wireguard:/etc/wireguard -v /lib/wireguard:/lib/wireguard \
-       -p 5555:5555/udp activeeos/wireguard-docker
+docker run \
+  -it --rm \
+  --cap-add net_admin \
+  --cap-add sys_module \
+  -v /etc/wireguard:/etc/wireguard \
+  -v /lib/wireguard:/lib/wireguard \
+  -v /usr/src:/usr/src \
+  -v /lib/modules:/lib/modules \
+  -p 5555:5555/udp \
+  deltasquare4/wireguard-docker
 ```
 
 ## Inspiration
@@ -65,3 +78,5 @@ Thanks to Nick Babcock for his [blog
 post](https://nbsoftsolutions.com/blog/routing-select-docker-containers-through-wireguard-vpn)
 explaining the mechanics behind running Wireguard inside of a
 container.
+
+Thanks David Huie for creating the original Docker container.
