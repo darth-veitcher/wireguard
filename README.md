@@ -20,10 +20,10 @@ Instead of installing Ubuntu-specific kernel headers, install kernel header thro
 ## Image
 
 An up-to date Docker image can be found on Dockerhub at
-`deltasquare4/wireguard-docker`. To pull:
+`deltasquare4/wireguard-docker-rancheros`. To pull:
 
 ```bash
-$ docker pull deltasquare4/wireguard-docker
+$ docker pull deltasquare4/wireguard-docker-rancheros
 ```
 
 ## Usage
@@ -69,7 +69,7 @@ docker run \
   -v /usr/src:/usr/src \
   -v /lib/modules:/lib/modules \
   -p 5555:5555/udp \
-  deltasquare4/wireguard-docker
+  deltasquare4/wireguard-docker-rancheros
 ```
 
 ## Inspiration
