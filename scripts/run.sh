@@ -2,13 +2,6 @@
 
 set -euo pipefail
 
-# Install Wireguard. This has to be done dynamically since the kernel
-# module depends on the host kernel version.
-apt update
-# Kernel headers should be mounted through volume on RancherOS. See Readme.
-# apt install -y linux-headers-$(uname -r)
-apt install -y wireguard
-
 # Find a Wireguard interface
 interfaces=`find /etc/wireguard -type f`
 if [[ -z $interfaces ]]; then
