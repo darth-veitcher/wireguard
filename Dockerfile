@@ -24,7 +24,7 @@ RUN set -x \
         ) \
         && apk del .build-deps
 
-COPY scripts/* /usr/local/bin
+COPY scripts/* /usr/local/bin/
 
 ENTRYPOINT [ "/usr/local/bin/run.sh" ]
 CMD [ "/usr/local/bin/run.sh" ]
