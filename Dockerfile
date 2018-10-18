@@ -26,5 +26,5 @@ RUN set -x \
 
 COPY scripts/* /usr/local/bin/
 
-ENTRYPOINT [ "/usr/local/bin/run.sh" ]
+ENTRYPOINT [ "/usr/local/bin/entrypoint.sh" ]
 CMD [ "/usr/local/bin/run.sh" ]
