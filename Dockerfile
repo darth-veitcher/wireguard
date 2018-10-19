@@ -10,6 +10,7 @@ RUN apk add --no-cache \
         elfutils-libelf \
         libelf-dev \
         libmnl-dev \
+        openresolv \
         iproute2 \
         iputils \
         procps \
