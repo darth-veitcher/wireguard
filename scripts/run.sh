@@ -15,6 +15,7 @@ echo "$(date): Starting Wireguard"
 wg-quick up $interface
 
 VPN_IP=$(grep -Po 'Endpoint\s=\s\K[^:]*' $interfaces)
+echo "VPN IP: $VPN_IP"
 
 # Handle shutdown behavior
 function finish () {
