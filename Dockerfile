@@ -4,6 +4,7 @@ FROM alpine:3.8
 LABEL maintainer "Rakshit Menpara <deltasquare4@gmail.com>"
 
 RUN apk add --no-cache \
+		bash \
         build-base \
         ca-certificates \
         elfutils-libelf \
