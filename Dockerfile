@@ -1,4 +1,4 @@
-FROM alpine:3.8
+FROM alpine
 
 # Modified version of https://github.com/jessfraz/dockerfiles/blob/master/wireguard/install/Dockerfile
 LABEL maintainer "Rakshit Menpara <deltasquare4@gmail.com>"
