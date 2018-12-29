@@ -17,7 +17,7 @@ RUN apk add --no-cache \
         grep
 
 # https://git.zx2c4.com/WireGuard/refs/
-ENV WIREGUARD_VERSION 0.0.20181018
+ENV WIREGUARD_VERSION 0.0.20181218
 
 RUN set -x \
         && apk add --no-cache --virtual .build-deps \
